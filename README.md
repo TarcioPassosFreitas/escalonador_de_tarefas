@@ -5,31 +5,101 @@
 
 ## Índice
 
-1. [Introdução](#introdução)
-2. [Fundamentos Teóricos](#fundamentos-teóricos)
+1. [Iniciando](#como-usar)
+   - [Pré-requisitos](#pré-requisitos)
+   - [Construir o Projeto](#construir-o-projeto)
+   - [Executar o Projeto](#executar-o-projeto)
+   - [Estrutura de Diretórios](#estrutura-de-diretórios)
+3. [Introdução](#introdução)
+4. [Fundamentos Teóricos](#fundamentos-teóricos)
     - [Processos e Estados](#processos-e-estados)
     - [Escalonamento de Processos](#escalonamento-de-processos)
     - [Algoritmo Round Robin](#algoritmo-round-robin)
     - [Bloco de Controle de Processo (BCP)](#bloco-de-controle-de-processo-bcp)
-3. [Descrição do Sistema](#descrição-do-sistema)
+5. [Descrição do Sistema](#descrição-do-sistema)
     - [Estrutura do Projeto](#estrutura-do-projeto)
     - [Classes Principais](#classes-principais)
     - [Fluxo de Execução](#fluxo-de-execução)
-4. [Implementação](#implementação)
+6. [Implementação](#implementação)
     - [ProcessLoader](#processloader)
     - [Scheduler](#scheduler)
     - [Logger](#logger)
     - [Main](#main)
-5. [Execução e Logs](#execução-e-logs)
+7. [Execução e Logs](#execução-e-logs)
     - [Configuração Inicial](#configuração-inicial)
     - [Exemplo de Execução](#exemplo-de-execução)
     - [Análise do Log Gerado](#análise-do-log-gerado)
-6. [Resultados e Avaliação](#resultados-e-avaliação)
+8. [Resultados e Avaliação](#resultados-e-avaliação)
     - [Métricas Coletadas](#métricas-coletadas)
     - [Impacto do Quantum](#impacto-do-quantum)
     - [Recomendações](#recomendações)
-7. [Conclusão](#conclusão)
-8. [Referências](#referências)
+9. [Conclusão](#conclusão)
+10. [Referências](#referências)
+
+
+---
+## Como Usar
+
+### Pré-requisitos
+
+- **Java 17** instalado
+- **Gradle** instalado
+- **Lombok** plugin configurado no seu IDE
+
+### Construir o Projeto
+
+Clone o repositório e navegue até o diretório do projeto:
+
+```bash
+git clone https://github.com/TarcioPassosFreitas/escalonador_de_tarefas.git
+cd escalonador_de_tarefas
+````
+Compile o projeto usando Gradle:
+
+````bash
+gradle build
+````
+
+### Executar o Projeto
+
+Certifique-se de que o arquivo quantum.txt está configurado corretamente em src/main/resources/quantum/quantum.txt e os arquivos de entrada que deseja estejam em src/main/resources/inserts.
+Execute a aplicação:
+
+````bash
+gradle run
+````
+
+Os logs serão gerados no diretório src/main/resources/logs com o formato logXX_timestamp.txt.
+
+### Estrutura de Diretórios
+````plaintext
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── br
+│   │   │       └── com
+│   │   │           └── escalonadorTarefas
+│   │   │               ├── enums
+│   │   │               │   └── ProcessState.java
+│   │   │               ├── models
+│   │   │               │   └── ProcessControlBlock.java
+│   │   │               ├── services
+│   │   │               │   ├── Logger.java
+│   │   │               │   ├── ProcessLoader.java
+│   │   │               │   └── Scheduler.java
+│   │   │               └── Main.java
+│   │   └── resources
+│   │       ├── inserts
+│   │       │   ├── prog_01.txt
+│   │       │   ├── prog_02.txt
+│   │       │   └── ... (outros programas)
+│   │       ├── logs
+│   │       └── quantum
+│   │           └── quantum.txt
+├── build.gradle
+└── README.md
+
+````
 
 ---
 
